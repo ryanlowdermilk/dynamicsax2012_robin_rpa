@@ -1,11 +1,15 @@
 import "C:\Users\ryanlo\Documents\git\MSExpense\msexpense.appmask" as app
 
 set BroadbandProvider to 'Frontier'
+set BroadbandAmt to '75.00'
 set CellPhoneProvider to 'ATT'
+set CellPhoneAmt to '75.00'
 set CostCenter to '96752'
 
 /# ******************************************
- DISCLAIMER: USE AT YOUR OWN RISK!!! FOR INTERNAL MICROSOFT USE ONLY
+ DISCLAIMER: USE AT YOUR OWN RISK!!! 
+ PLEASE ENSURE ALL VALUES ARE CORRECT BEFORE SUBMITTING EXPENSE REPORT
+ DO NOT TOUCH YOUR MOUSE OR KEYBOARD WHILE THE AUTOMATION RUNS
  DO NOT TOUCH ANYTHING AFTER THIS... PLEASE
 
 Changelog:
@@ -30,11 +34,11 @@ Wait (UIAutomation.WindowContainsElementInState State:UIAutomation.State.Enabled
     MouseAndKeyboard.SendKeys TextToSend: '{Tab}' + MonthName +' - Mobile and Broadband{Tab}{Tab}{Tab}' + CostCenter + '{Tab}{Tab}{Tab}{Tab}{Tab}{Tab}{Enter}'  DelayBetweenKeystrokes:10
 Wait (UIAutomation.WindowContainsElement Element: app.combo_Category)
     wait 1
-    MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}{Tab}{Tab}{Tab}{Tab}Broadband - Home{Tab}' + MonthNumber + '/1/2020{Tab}' + BroadbandProvider + '{Tab}75.00{Enter}' DelayBetweenKeystrokes:10   
+    MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}{Tab}{Tab}{Tab}{Tab}Broadband - Home{Tab}' + MonthNumber + '/1/2020{Tab}' + BroadbandProvider + '{Tab}' + BroadbandAmt + '{Enter}' DelayBetweenKeystrokes:10   
 Wait (UIAutomation.WindowContainsElement Element: app.combo_Category)   
     wait 1 
     MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}{Tab}{Tab}{Enter}'
-    MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}Cell Phone{Tab}' + MonthNumber + '/1/2020{Tab}' + CellPhoneProvider + '{Tab}75.00{Enter}' DelayBetweenKeystrokes:10
+    MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}Cell Phone{Tab}' + MonthNumber + '/1/2020{Tab}' + CellPhoneProvider + '{Tab}' + CellPhoneAmt + '{Enter}' DelayBetweenKeystrokes:10
 
 function SetMonthNumberAndName currentDateTime
     switch MonthNumber
