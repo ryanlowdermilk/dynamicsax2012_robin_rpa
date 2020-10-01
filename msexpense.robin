@@ -1,0 +1,67 @@
+import "C:\Users\ryanlo\Documents\git\MSExpense\msexpense.appmask" as app
+
+set BroadbandProvider to 'Frontier'
+set CellPhoneProvider to 'ATT'
+set CostCenter to '96752'
+
+/# ******************************************
+ DISCLAIMER: USE AT YOUR OWN RISK!!! FOR INTERNAL MICROSOFT USE ONLY
+ DO NOT TOUCH ANYTHING AFTER THIS... PLEASE
+
+Changelog:
+
+10/1/2020 - Unreconciled expenses will block this from running. You must reconcile all unreconciled expenses first.
+
+******************************************
+#/
+
+MouseAndKeyboard.BlockInput BlockIt: True
+DateTime.Local DateTimeFormat:DateTime.DateTimeFormat.DateAndTime CurrentDateTime=> CurrentDateTime
+set MonthNumber to CurrentDateTime.Month
+
+call SetMonthNumberAndName currentDateTime:CurrentDateTime
+
+MouseAndKeyboard.SendKeys TextToSend: '{LWin}expenses{Enter}' DelayBetweenKeystrokes:50
+Wait (UIAutomation.WindowContainsElementInState State:UIAutomation.State.Enabled Element: app.btn_Refresh)
+    MouseAndKeyboard.PressReleaseKey Press:True Control:False Alt:False Shift:True Win:False
+    MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}{Enter}'  DelayBetweenKeystrokes:10
+    MouseAndKeyboard.PressReleaseKey Press:False Control:False Alt:False Shift:True Win:False
+    wait 1
+    MouseAndKeyboard.SendKeys TextToSend: '{Tab}' + MonthName +' - Mobile and Broadband{Tab}{Tab}{Tab}' + CostCenter + '{Tab}{Tab}{Tab}{Tab}{Tab}{Tab}{Enter}'  DelayBetweenKeystrokes:10
+Wait (UIAutomation.WindowContainsElement Element: app.combo_Category)
+    wait 1
+    MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}{Tab}{Tab}{Tab}{Tab}Broadband - Home{Tab}' + MonthNumber + '/1/2020{Tab}' + BroadbandProvider + '{Tab}75.00{Enter}' DelayBetweenKeystrokes:10   
+Wait (UIAutomation.WindowContainsElement Element: app.combo_Category)   
+    wait 1 
+    MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}{Tab}{Tab}{Enter}'
+    MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}Cell Phone{Tab}' + MonthNumber + '/1/2020{Tab}' + CellPhoneProvider + '{Tab}75.00{Enter}' DelayBetweenKeystrokes:10
+
+function SetMonthNumberAndName currentDateTime
+    switch MonthNumber
+        case "1"
+            set g:MonthName to "January"
+        case "2"
+            set g:MonthName to "February"
+        case "3"
+            set g:MonthName to "March"
+        case "4"
+            set g:MonthName to "April"
+        case "5"
+            set g:MonthName to "May"
+        case "6"
+            set g:MonthName to "June"
+        case "7"
+            set g:MonthName to "July"
+        case "8"
+            set g:MonthName to "August"
+        case "9"
+            set g:MonthName to "September"
+        case "10"
+            set g:MonthName to "October"
+        case "11"
+            set g:MonthName to "November"
+        case "12"
+            set g:MonthName to "December"
+        default
+    end
+end
