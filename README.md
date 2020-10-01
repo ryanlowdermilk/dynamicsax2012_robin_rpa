@@ -8,3 +8,6 @@ An example of submitting monthly expenses in Dynamics AX 2012 using Robin progra
 3. Edit .ROBIN file on Line #1 to point to the path of the .appmask file
 4. Edit Line #3 and #4. Enter your cell phone and internet provider.
 5. Click 'Run'
+
+## Notes
+- This will not work if you have unreconcilled transations. First reconcile your transactions and then run this.
