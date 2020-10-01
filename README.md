@@ -8,8 +8,8 @@ Although this automation has been tested, use at your own risk.
 
 1. Install Robin, here. https://robin-language.org/
 2. Download a .ZIP of this repo and extract
-3. Edit .ROBIN file on Line #1 to point to the path of the .appmask file
-4. Edit Line #3 and #4. Enter your cell phone and internet provider.
+3. Edit .ROBIN file on Line #1 to point to the path of the .appmask file included in the .ZIP file you downloaded
+4. Edit Line #3 and #4. Enter your cell phone and internet provider
 5. Click 'Run'
 
 ## Notes
