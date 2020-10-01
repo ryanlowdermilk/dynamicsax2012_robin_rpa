@@ -1,6 +1,9 @@
 # Automated monthly expenses using Robin w/ Dynamics AX 2012
 An example of submitting monthly expenses in Dynamics AX 2012 using Robin programming language. This example uses a monthly cell phone and internet charge of $75 and supports Cost Centers.
 
+## Disclaimer
+Although this automation has been tested, use at your own risk.
+
 ## Steps to install
 
 1. Install Robin, here. https://robin-language.org/
@@ -10,4 +13,5 @@ An example of submitting monthly expenses in Dynamics AX 2012 using Robin progra
 5. Click 'Run'
 
 ## Notes
-- This will not work if you have unreconcilled transations. First reconcile your transactions and then run this.
+- This will not work if you have unreconcilled transactions. First reconcile your transactions and then run this.
+- Upon running the automation, ensure you do not touch your mouse or keyboard.
