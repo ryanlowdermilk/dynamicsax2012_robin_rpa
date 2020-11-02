@@ -16,7 +16,7 @@ set ManagerAlias to 'jamespru'
 Changelog:
 
 10/1/2020 - Unreconciled expenses will block this from running. You must reconcile all unreconciled expenses first.
-
+11/2/2020 - Added Manager Alias support
 ******************************************
 #/
 
