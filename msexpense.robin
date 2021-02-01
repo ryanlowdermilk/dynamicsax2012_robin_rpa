@@ -23,6 +23,7 @@ Changelog:
 MouseAndKeyboard.BlockInput BlockIt: True
 DateTime.Local DateTimeFormat:DateTime.DateTimeFormat.DateAndTime CurrentDateTime=> CurrentDateTime
 set MonthNumber to CurrentDateTime.Month
+set Year to CurrentDateTime.Year
 
 call SetMonthNumberAndName currentDateTime:CurrentDateTime
 
@@ -35,11 +36,11 @@ Wait (UIAutomation.WindowContainsElementInState State:UIAutomation.State.Enabled
     MouseAndKeyboard.SendKeys TextToSend: '{Tab}' + MonthName +' - Mobile and Broadband{Tab}{Tab}{Tab}' + CostCenter + '{Tab}' + ManagerAlias + '{Tab}{Tab}{Tab}{Tab}{Tab}{Enter}'  DelayBetweenKeystrokes:10
 Wait (UIAutomation.WindowContainsElement Element: app.combo_Category)
     wait 1
-    MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}{Tab}{Tab}{Tab}{Tab}Broadband - Home{Tab}' + MonthNumber + '/1/2020{Tab}' + BroadbandProvider + '{Tab}' + BroadbandAmt + '{Enter}' DelayBetweenKeystrokes:10   
+    MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}{Tab}{Tab}{Tab}{Tab}Broadband - Home{Tab}' + MonthNumber + '/1/' + Year + '{Tab}' + BroadbandProvider + '{Tab}' + BroadbandAmt + '{Enter}' DelayBetweenKeystrokes:10   
 Wait (UIAutomation.WindowContainsElement Element: app.combo_Category)   
     wait 1 
     MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}{Tab}{Tab}{Enter}'
-    MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}Cell Phone{Tab}' + MonthNumber + '/1/2020{Tab}' + CellPhoneProvider + '{Tab}' + CellPhoneAmt + '{Enter}' DelayBetweenKeystrokes:10
+    MouseAndKeyboard.SendKeys TextToSend: '{Tab}{Tab}{Tab}Cell Phone{Tab}' + MonthNumber + '/1/' + Year + '{Tab}' + CellPhoneProvider + '{Tab}' + CellPhoneAmt + '{Enter}' DelayBetweenKeystrokes:10
 
 function SetMonthNumberAndName currentDateTime
     switch MonthNumber
